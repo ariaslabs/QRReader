@@ -8,14 +8,20 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var isShowingScanner = false
+  
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        TabView {
+            CameraView().tabItem {
+                Image(systemName: "qrcode.viewfinder")
+                Text("QR Reader")
+            }
+            
+            HistoryListView().tabItem {
+                Image(systemName: "list.bullet")
+                Text("History")
+            }
         }
-        .padding()
     }
 }
 
